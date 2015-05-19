@@ -31,10 +31,10 @@
     suggest: true
 
 
-  - dimension: race
-    type: int
-    hidden: true
-    sql: ${TABLE}.race
+#   - dimension: race
+#     type: int
+#     hidden: true
+#     sql: ${TABLE}.race
     
   - dimension: race_text
     label: 'Race'
