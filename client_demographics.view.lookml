@@ -20,10 +20,10 @@
     sql: fn_getPicklistValueName('ethnicity',${ethnicity})    
       
 
-#   - dimension: gender
-#     type: int
-#     hidden: true
-#     sql: ${TABLE}.gender
+  - dimension: gender
+    type: int
+    hidden: true
+    sql: ${TABLE}.gender
     
   - dimension: gender_text
     label: 'Gender'
