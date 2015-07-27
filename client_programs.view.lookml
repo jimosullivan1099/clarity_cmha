@@ -113,6 +113,7 @@
     
   - dimension: days_since_start
     label: 'Days in Project'
+<<<<<<< HEAD
     bypass_suggest_restrictions: true
     suggest_dimension: 
 #     type: int
@@ -174,6 +175,66 @@
     label: 'Individual or Family '
     type: string
     bypass_suggest_restrictions: true
+=======
+    type: number
+    sql: DATEDIFF(COALESCE(${end_date},NOW()),${start_date})
+    
+  - dimension: days_since_start_tier
+    label: 'Days in Project Tier'
+    type: tier
+    style: integer
+    tiers: [0,3,7,30,90,180,365,730,10000]
+    sql: ${days_since_start}
+
+
+  - measure: average_duration
+    label: 'Average Days in Project'
+    type: average
+    sql: ${days_since_start}
+    
+  - measure: last_exit
+    label: 'Last Exit'
+    type: date
+    sql: |
+      CASE
+      WHEN MAX( COALESCE(${end_date},'2099-12-31')) = '2099-12-31' THEN
+      NULL
+      ELSE MAX( COALESCE(${end_date},'2099-12-31'))
+      END
+
+#     sql: |
+#       CASE
+#       WHEN ${enrollments.head_of_household} = 1
+#       AND ${TABLE}.disabled = 1 AND  
+#       ( ${TABLE}.chronic_1 = 1 OR  ${TABLE}.chronic_2 = 4) 
+#       THEN 'Chronic Homeless'    
+#       ELSE 'Not Chronic Homeless'    
+#       END
+
+
+
+  - dimension: still_in_program
+    label: 'Active in Project'
+    type: yesno
+    sql: ${end_date} IS NULL
+
+  - dimension: status
+    hidden: true
+    type: int
+    sql: ${TABLE}.status
+    
+#   - dimension: status_text
+#     sql: fn_getPicklistValueName('status',${status})
+
+  - dimension: type
+    hidden: true
+    type: int
+    sql: ${TABLE}.type
+
+  - dimension: enrollment_type
+    label: 'Individual or Family '
+    type: string
+>>>>>>> branch 'dev-jim-osullivan-ygv9' of git@lkrgit_github_5c637f391b9ca3811f712e9c4e51a76a48ba9030:jimosullivan1099/clarity_cmha.git
     sql_case:
             Individual: ${type} = 1
             Family: ${type} = 2

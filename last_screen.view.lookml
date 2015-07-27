@@ -127,10 +127,13 @@
 #   - dimension: chronic_homeless_calculation
 #     sql:    CASE WHEN ${client_programs.head_of_household} = 1 AND ${TABLE}.disabled = 1 AND  ( ${TABLE}.chronic_1 = 1 OR  ${TABLE}.chronic_2 = 4) THEN 'Chronic Homeless'    ELSE 'Not Chronic Homeless'    END
 
+<<<<<<< HEAD
   - dimension: Employed
     type: int
     sql: fn_getPicklistValueName('employment_is',${TABLE}.employment_is)
 
+=======
+>>>>>>> branch 'dev-jim-osullivan-ygv9' of git@lkrgit_github_5c637f391b9ca3811f712e9c4e51a76a48ba9030:jimosullivan1099/clarity_cmha.git
   - dimension: disabled
     label: 'Disability: Any'
     type: int

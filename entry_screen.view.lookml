@@ -229,6 +229,7 @@
     type: yesno
     sql: ${TABLE}.health_dv
 
+<<<<<<< HEAD
   - dimension: health_dv_occurred
     type: int
     sql: fn_getPicklistValueName('health_dv_occurred',${TABLE}.health_dv_occurred)
@@ -236,6 +237,11 @@
   - dimension: Employed
     type: int
     sql: fn_getPicklistValueName('employment_is',${TABLE}.employment_is)
+=======
+  #- dimension: health_dv_occurred
+  #  type: int
+  #  sql: ${TABLE}.health_dv_occurred
+>>>>>>> branch 'dev-jim-osullivan-ygv9' of git@lkrgit_github_5c637f391b9ca3811f712e9c4e51a76a48ba9030:jimosullivan1099/clarity_cmha.git
 
   #- dimension: health_general
   #  type: int

@@ -111,6 +111,7 @@
 
   - dimension: funder
     label: 'Project Funding Source'
+<<<<<<< HEAD
     bypass_suggest_restrictions: true
     sql: fn_getPicklistValueName('funding_source',${funding_source})   #program_categories
 
@@ -160,6 +161,53 @@
   - dimension: project_type_code
     label: 'Project Type Code'
     bypass_suggest_restrictions: true
+=======
+    sql: fn_getPicklistValueName('funding_source',${funding_source})   #program_categories
+
+  - dimension: geocode
+    sql: ${TABLE}.geocode
+
+  - dimension: identifier
+    sql: ${TABLE}.identifier
+
+  - dimension_group: last_updated
+    type: time
+    timeframes: [time, date, week, month]
+    sql: ${TABLE}.last_updated
+
+  - dimension: name
+    sql: ${TABLE}.name
+    
+    
+  - dimension: agency_project_name
+    label: 'Full Name'
+    sql: CONCAT(${agencies.name},' - ',${name})    
+
+  - measure: list_of_program_names
+    type: list
+    list_field: agency_project_name
+
+
+  - dimension: program_applicability
+    type: int
+    sql: ${TABLE}.program_applicability
+
+  - dimension: public_listing
+    type: int
+    sql: ${TABLE}.public_listing
+
+  - dimension: ref_agency
+    hidden: true
+    type: int
+    sql: ${TABLE}.ref_agency
+
+  - dimension: ref_category
+    type: int
+    sql: ${TABLE}.ref_category
+    
+  - dimension: project_type_code
+    label: 'Project Type Code'
+>>>>>>> branch 'dev-jim-osullivan-ygv9' of git@lkrgit_github_5c637f391b9ca3811f712e9c4e51a76a48ba9030:jimosullivan1099/clarity_cmha.git
     sql: fn_getPicklistValueName('program_categories',${ref_category})   #program_categories
 
   - dimension: ref_site_type

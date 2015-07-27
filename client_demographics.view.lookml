@@ -17,6 +17,7 @@
   - dimension: ethnicity_text
     label: 'Ethnicity'
     suggest: true
+<<<<<<< HEAD
     bypass_suggest_restrictions: true
     sql: fn_getPicklistValueName('ethnicity',${ethnicity})    
       
@@ -62,6 +63,52 @@
     label: 'Veteran Status'
     sql: fn_getPicklistValueName('veteran',${veteran})
     bypass_suggest_restrictions: true
+=======
+    sql: fn_getPicklistValueName('ethnicity',${ethnicity})    
+      
+
+  - dimension: gender
+    type: int
+    hidden: true
+    sql: ${TABLE}.gender
+    
+  - dimension: gender_text
+    label: 'Gender'
+    sql: fn_getPicklistValueName('gender',${gender})
+    suggest: true
+
+
+  - dimension: race
+    type: int
+    hidden: true
+    sql: ${TABLE}.race
+    
+  - dimension: race_text
+    label: 'Race'
+    suggest: true
+    sql: fn_getPicklistValueName('race',${TABLE}.race)  
+
+    
+  - dimension: ref_agency
+    hidden: true
+    type: int
+    sql: ${TABLE}.ref_agency
+
+  - dimension: ref_client
+    hidden: true
+    type: int
+    sql: ${TABLE}.ref_client
+
+  - dimension: veteran
+    hidden: true
+    type: int
+    sql: ${TABLE}.veteran
+    
+  - dimension: veteran_text
+    label: 'Veteran Status'
+    sql: fn_getPicklistValueName('veteran',${veteran})
+    suggest: true
+>>>>>>> branch 'dev-jim-osullivan-ygv9' of git@lkrgit_github_5c637f391b9ca3811f712e9c4e51a76a48ba9030:jimosullivan1099/clarity_cmha.git
 
   - dimension: veteran_branch
     type: int

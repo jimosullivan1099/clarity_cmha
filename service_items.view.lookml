@@ -55,7 +55,10 @@
 #     sql: ${TABLE}.last_updated
 # 
   - dimension: name
+<<<<<<< HEAD
     bypass_suggest_restrictions: true
+=======
+>>>>>>> branch 'dev-jim-osullivan-ygv9' of git@lkrgit_github_5c637f391b9ca3811f712e9c4e51a76a48ba9030:jimosullivan1099/clarity_cmha.git
     sql: ${TABLE}.name
 # 
 #   - dimension: program_option
