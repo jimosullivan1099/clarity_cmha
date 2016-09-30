@@ -1,12 +1,19 @@
 - view: entry_custom
   sql_table_name: |
-    client_program_custom
+    client_program_data
+
   fields:
 
   - dimension: id
     primary_key: true
     type: int
     sql: ${TABLE}.id
+
+  - dimension: ref_client_program_demographics
+    hidden: true
+    type: int
+    sql: ${TABLE}.ref_client_program_demographics
+
 
   - dimension: age_0_3
     type: int

@@ -12,6 +12,12 @@
     type: int
     sql: ${TABLE}.age_0_3
 
+  - dimension: ref_client_program_demographics
+    hidden: true
+    type: int
+    sql: ${TABLE}.ref_client_program_demographics
+
+
   - dimension: age_13_17
     type: int
     sql: ${TABLE}.age_13_17
